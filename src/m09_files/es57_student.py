@@ -6,8 +6,8 @@ def conta_parole(nome_file):
         testo = file.read().lower()
 
     
-    testo = testo.replace(".", "").replace(",", "")
-
+    testo = testo.replace(".", " ").replace(",", " ")
+ 
     parole = testo.split()
 
     for parola in parole:
