@@ -1,5 +1,5 @@
 .ruff_cache/
 _hidden/
 *.pyc
-**/*reference.py
+**/*student.py**/*reference.py
 src/m10_package/streaming/
