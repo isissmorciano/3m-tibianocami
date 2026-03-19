@@ -1,5 +1,6 @@
 from musica import canzoni, playlist
 from musica.playlist import Playlist
+from musica.canzoni import Canzone
 
 
 def main() -> None:
@@ -7,9 +8,9 @@ def main() -> None:
     mia_playlist: Playlist = playlist.crea_playlist("Le mie canzoni preferite")
 
     # Crea le canzoni
-    canzone1 = canzoni.crea_canzone("Bohemian Rhapsody", "Queen", 355)
-    canzone2 = canzoni.crea_canzone("Stairway to Heaven", "Led Zeppelin", 482)
-    canzone3 = canzoni.crea_canzone("Hotel California", "Eagles", 390)
+    canzone1: Canzone = canzoni.crea_canzone("Bohemian Rhapsody", "Queen", 355)
+    canzone2: Canzone = canzoni.crea_canzone("Stairway to Heaven", "Led Zeppelin", 482)
+    canzone3: Canzone = canzoni.crea_canzone("Hotel California", "Eagles", 390)
 
     # Aggiungi le canzoni alla playlist
     playlist.aggiungi_canzone(mia_playlist, canzone1)
