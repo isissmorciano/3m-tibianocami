@@ -3,3 +3,4 @@ _hidden/
 *.pyc
 **/*reference.py
 src/m10_package/streaming/
+**/v5/*
