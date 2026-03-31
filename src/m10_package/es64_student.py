@@ -1,46 +1,4 @@
 """
-# Esercizio 64: Package "Quiz" - Domande e Risultati
-
-## Obiettivo
-Creare un package `quiz` che gestisca domande a scelta multipla e persista i risultati su file.
-
-## Istruzioni
-
-### Parte 1: Struttura del package
-    Crea una cartella `quiz/` con:
-    ```
-    quiz/
-    ├── __init__.py
-    ├── domande.py
-    └── risultati.py
-    ```
-
-### Parte 2: Modulo `domande.py`
-    Funzioni per gestire le domande (rappresentate come dizionari):
-    - `crea_domanda(testo: str, opzioni: list[str], risposta: int) -> dict:`
-    - `risposta` è l'indice 0-based dell'opzione corretta
-    - `info_domanda(domanda: dict) -> str:`
-    - Restituisce una stringa leggibile con domanda + opzioni numerate
-    - `risposta_valida(domanda: dict, scelta: int) -> bool:`
-    - Verifica se la scelta (1-based) è valida
-    - `verifica_risposta(domanda: dict, scelta: int) -> bool:`
-    - Restituisce True se la scelta (1-based) è corretta
-
-### Parte 3: Modulo `risultati.py`
-    Funzioni per gestire i risultati del quiz e per salvarli/caricarli su file JSON:
-    - `crea_risultati() -> dict:`
-    - Restituisce un dizionario con chiavi: `totale`, `corretti`
-    - `registra_risposta(risultati: dict, corretta: bool) -> None:`
-    - Aggiorna i totali
-    - `percentuale_corrette(risultati: dict) -> float:`
-    - Restituisce la percentuale di risposte corrette (1 decimale)
-    - `mostra_risultati(risultati: dict) -> str:`
-    - Restituisce una stringa leggibile del riepilogo
-    - `salva_risultati(risultati: dict, nome_file: str) -> None:`
-    - Salva i risultati in un file JSON
-    - `carica_risultati(nome_file: str) -> dict:`
-    - Carica i risultati da un file JSON
-
 Parte 4: Utilizzo del package in `es64_reference.py`
     1. Crea alcune domande (almeno 3)
     2. Simula alcune risposte dell'utente
@@ -68,3 +26,39 @@ Parte 4: Utilizzo del package in `es64_reference.py`
     Risultati caricati: Risposte corrette: 3/4 (75.0%)
     ```
 """
+from quiz1.domande import *
+
+from quiz1.risultati import *
+def main():
+     
+    """"Crea alcune domande (almeno 3)
+        2. Simula alcune risposte dell'utente
+        3. Registra i risultati
+        4. Stampa il riepilogo
+        5. Salva su file e ricarica dall'archivio
+        """
+    domanda=crea_domanda("Qual è il linguaggio usato in questo corso?", ["Python", "Java", "C++"], 0)
+    print(f"Domanda: {domanda['testo']}")
+    for i, opzione in enumerate(domanda["opzioni"], 1):
+        print(f"{i}. {opzione}")
+    
+    risultati = crea_risultati()
+    risposte_utente = [0, 1, 0, 2]
+    for risposta in risposte_utente:
+        corretta = (risposta == domanda["corretta"])
+        registra_risposta(risultati, corretta)
+    
+    print("\nRisultati:")
+    print(mostra_risultati(risultati))
+    
+
+    nome_file = 'quiz_risultati.json'
+    salva_risultati(risultati, nome_file)
+    print(f"\nRisultati salvati in '{nome_file}'")
+    
+    risultati_caricati = carica_risultati(nome_file)
+    print(f"Risultati caricati: {mostra_risultati(risultati_caricati)}")
+
+if __name__ == "__main__":
+    main()
+    
