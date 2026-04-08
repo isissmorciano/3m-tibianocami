@@ -26,6 +26,7 @@ Parte 4: Utilizzo del package in `es64_reference.py`
     Risultati caricati: Risposte corrette: 3/4 (75.0%)
     ```
 """
+#g
 from quiz1.domande import *
 
 from quiz1.risultati import *
@@ -36,7 +37,9 @@ def main():
         3. Registra i risultati
         4. Stampa il riepilogo
         5. Salva su file e ricarica dall'archivio
-        """
+
+
+    """
     domanda=crea_domanda("Qual è il linguaggio usato in questo corso?", ["Python", "Java", "C++"], 0)
     print(f"Domanda: {domanda['testo']}")
     for i, opzione in enumerate(domanda["opzioni"], 1):
@@ -62,3 +65,4 @@ def main():
 if __name__ == "__main__":
     main()
     
+
