@@ -16,13 +16,13 @@ diario/
 
 ### Parte 2: Modulo `entrate.py`
 Implementa funzioni per lavorare con le entrate del diario:
-- `crea_entrata(data: str, testo: str, categoria: str, durata: int) -> dict`
-  - `data` è una stringa nel formato `YYYY-MM-DD`
-  - `durata` è il tempo trascorso in minuti
-- `info_entrata(entrata: dict) -> str`
+          <!-- - `crea_entrata(data: str, testo: str, categoria: str, durata: int) -> dict`
+            - `data` è una stringa nel formato `YYYY-MM-DD`
+            - `durata` è il tempo trascorso in minuti -->
+<!-- - `info_entrata(entrata: dict) -> str`
   - Restituisce una stringa leggibile con data, categoria, durata e testo
 - `crea_diario() -> dict`
-  - Restituisce un dizionario con chiave `entrate` e lista vuota
+  - Restituisce un dizionario con chiave `entrate` e lista vuota -->
 - `aggiungi_entrata(diario: dict, entrata: dict) -> None`
 - `rimuovi_entrata(diario: dict, indice: int) -> None`
 - `tempo_totale(diario: dict) -> int`
@@ -73,8 +73,4 @@ Diario caricato:
 2026-04-09 [tempo libero] (30 min): Sono andato a fare una passeggiata nel parco.
 ```
 
-## Concetti Chiave
-- package Python con `__init__.py`
-- moduli separati per logica e persistenza
-- dizionari e liste per rappresentare dati
-- lettura/scrittura JSON
+
